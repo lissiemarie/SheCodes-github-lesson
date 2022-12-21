@@ -1,0 +1,82 @@
+body {
+    background: linear-gradient(90deg,
+            rgb(115, 187, 252) 0%,
+            rgb(23, 81, 149) 100%);
+    color: #22313f;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: left;
+    margin: 5px auto 0;
+}
+
+.city-day-time p {
+    text-align: left;
+    margin: 5px auto;
+    font-size: 20px;
+}
+
+.main {
+    height: 225px;
+    width: 500px;
+    margin: 100px auto;
+    background: #e4f1fe;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 25px 17px 37px rgba(0, 0, 0, 0.4);
+}
+
+#input-form {
+    display: block;
+}
+
+#city-input {
+    width: 60%;
+    height: 30px;
+    font-size: 17px;
+    border-radius: 15px;
+    border-color: #22313f;
+}
+
+#search-button,
+#current-button {
+    height: 36px;
+    width: 80px;
+    font-size: 17px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.4);
+    background-color: rgb(23, 81, 149);
+    color: #e4f1fe;
+}
+
+#current-button {
+    background-color: green;
+}
+
+#search-button:active,
+#current-button:active {
+    box-shadow: none;
+}
+
+.weather {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 0;
+    margin: 10px auto;
+}
+
+.temp {
+    font-size: 60px;
+    margin-top: -2px;
+}
+
+.celsius,
+.fahrenheit {
+    font-size: 50px;
+}
+
+.precip {
+    font-size: 20px;
+}
