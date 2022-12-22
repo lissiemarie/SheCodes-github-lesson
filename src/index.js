@@ -48,7 +48,7 @@ const getPosition = (position) => {
     let currentWind = response.data.wind.speed;
     wind.innerHTML = currentWind;
   };
-  let apiKey = "cd173a006b0e51dac58c6d8064c94178";
+  let apiKey = "7d478f69e1b2f5d563653f13f5f91d76";
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
