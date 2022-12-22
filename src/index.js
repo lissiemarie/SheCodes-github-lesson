@@ -36,7 +36,7 @@ const getPosition = (position) => {
     let currentCity = response.data.name;
     city.innerHTML = currentCity;
     //weather
-    let weather = document.querySelector(".currentWeather");
+    let weather = document.querySelector(".current-weather");
     let currentWeather = response.data.weather.description;
     weather.innerHTML = currentWeather;
     //humidity
