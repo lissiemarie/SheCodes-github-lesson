@@ -45,7 +45,7 @@ const showTempSearch = (response) => {
     //wind
     let wind = document.querySelector(".wind");
     let currentWind = Math.round(response.data.wind.speed);
-    wind.innerHTML = `Wind: ${currentWind}${response.data.wind.speed.unit}`;
+    wind.innerHTML = `Wind: ${currentWind} m/s`;
   };
 
 //When current button is clicked:
