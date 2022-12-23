@@ -41,11 +41,11 @@ const showTempSearch = (response) => {
     //humidity
     let humidity = document.querySelector(".humidity");
     let currentHumidity = response.data.main.humidity;
-    humidity.innerHTML = `Humidity: ${currentHumidity}`;
+    humidity.innerHTML = `Humidity: ${currentHumidity}%`;
     //wind
     let wind = document.querySelector(".wind");
     let currentWind = Math.round(response.data.wind.speed);
-    wind.innerHTML = `Wind: ${currentWind}`;
+    wind.innerHTML = `Wind: ${currentWind}${response.data.wind.speed.unit}`;
   };
 
 //When current button is clicked:
