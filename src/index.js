@@ -38,14 +38,14 @@ const getPosition = (position) => {
     //weather
     let weather = document.querySelector(".current-weather");
     let currentWeather = response.data.weather.description;
-    weather.innerHTML = current-weather;
+    weather.innerHTML = currentWeather;
     //humidity
     let humidity = document.querySelector(".humidity");
     let currentHumidity = response.data.main.humidity;
     humidity.innerHTML = currentHumidity;
     //wind
     let wind = document.querySelector(".wind");
-    let currentWind = response.data.wind.speed;
+    let currentWind = Math.round(response.data.wind.speed);
     wind.innerHTML = currentWind;
   };
   let apiKey = "7d478f69e1b2f5d563653f13f5f91d76";
@@ -77,7 +77,7 @@ const getSearchedCity = (event) => {
     let currentCity = response.data.name;
     city.innerHTML = currentCity;
     //weather
-    let weather = document.querySelector(".currentWeather");
+    let weather = document.querySelector(".current-weather");
     let currentWeather = response.data.weather[0].main;
     weather.innerHTML = currentWeather;
     //humidity
@@ -86,11 +86,11 @@ const getSearchedCity = (event) => {
     humidity.innerHTML = currentHumidity;
     //wind
     let wind = document.querySelector(".wind");
-    let currentWind = response.data.wind.speed;
+    let currentWind = Math.round(response.data.wind.speed);
     wind.innerHTML = currentWind;
   };
   let cityInput = document.querySelector("#city-input").value;
-  let apiKey = "cd173a006b0e51dac58c6d8064c94178";
+  let apiKey = "7d478f69e1b2f5d563653f13f5f91d76";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showTempSearch);
 };
