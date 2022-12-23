@@ -55,8 +55,6 @@ const getPosition = (position) => {
   let long = position.coords.longitude;
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showTempSearch);
-  let searchbar = document.querySelector("#city-input");
-  searchbar.innerHTML = " "
 };
 
 const currentGetPosition = (event) => {
