@@ -80,7 +80,8 @@ h1 {
 }
 
 .current-emoji {
-    font-size: 40px;
+    height: 125px;
+    margin: 0 auto;
 }
 
 .five-day {
