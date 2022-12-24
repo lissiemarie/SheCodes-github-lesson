@@ -47,7 +47,7 @@ const showCurrentTempSearch = (response) => {
     let currentWind = Math.round(response.data.wind.speed);
     wind.innerHTML = `Wind: ${currentWind} mph`;
 
-    let emoji = document.querySelector(".emoji");
+    let emoji = document.querySelector(".current-emoji");
     let currentEmoji = response.data.condition.icon_url;
     emoji.setAttribute("src", currentEmoji);
 
