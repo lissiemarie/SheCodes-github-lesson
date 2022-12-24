@@ -29,7 +29,7 @@ const showCurrentTempSearch = (response) => {
     //temp
     let temp = document.querySelector(".temp");
     let currentTemp = Math.round(response.data.temperature.current);
-    temp.innerHTML = `${currentTemp}°C`;
+    temp.innerHTML = `${currentTemp}°F`;
     //city
     let city = document.querySelector("h1");
     let currentCity = response.data.city;
@@ -53,9 +53,8 @@ const showCurrentTempSearch = (response) => {
 
 //When current button is clicked:
 const getPosition = (position) => {
-  
-  let lat = position.coordinates.latitude;
-  let long = position.coordinates.longitude;
+  let lat = position.data.coordinates.latitude;
+  let long = position.data.coordinates.longitude;
   let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=imperial`;
   axios.get(url).then(showCurrentTempSearch);
 };
