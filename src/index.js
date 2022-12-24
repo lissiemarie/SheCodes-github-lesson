@@ -25,36 +25,39 @@ if (currentMinutes >= 10) {
 }
 
 //All doc selectors
-const showTempSearch = (response) => {
+const showCurrentTempSearch = (response) => {
     //temp
     let temp = document.querySelector(".temp");
-    let currentTemp = Math.round(response.data.main.temp);
+    let currentTemp = Math.round(response.data.temperature.current);
     temp.innerHTML = `${currentTemp}°C`;
     //city
     let city = document.querySelector("h1");
-    let currentCity = response.data.name;
+    let currentCity = response.data.city;
     city.innerHTML = currentCity;
     //weather
     let weather = document.querySelector(".current-weather");
-    let currentWeather = response.data.weather[0].main;
+    let currentWeather = response.data.condition.description;
     weather.innerHTML = currentWeather;
     //humidity
     let humidity = document.querySelector(".humidity");
-    let currentHumidity = response.data.main.humidity;
+    let currentHumidity = response.data.temperature.humidity;
     humidity.innerHTML = `Humidity: ${currentHumidity}%`;
     //wind
     let wind = document.querySelector(".wind");
     let currentWind = Math.round(response.data.wind.speed);
-    wind.innerHTML = `Wind: ${currentWind} m/s`;
+    wind.innerHTML = `Wind: ${currentWind} mph`;
   };
+
+  //API KEY!
+  let apiKey = "00f36a13417d323ad5btb367oe1a594f";
 
 //When current button is clicked:
 const getPosition = (position) => {
-  let apiKey = "7d478f69e1b2f5d563653f13f5f91d76";
-  let lat = position.coords.latitude;
-  let long = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(showTempSearch);
+  
+  let lat = position.coordinates.latitude;
+  let long = position.coordinates.longitude;
+  let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=imperial`;
+  axios.get(url).then(showCurrentTempSearch);
 };
 
 const currentGetPosition = (event) => {
@@ -70,9 +73,8 @@ currentButton.addEventListener("click", currentGetPosition);
 const getSearchedCity = (event) => {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input").value;
-  let apiKey = "7d478f69e1b2f5d563653f13f5f91d76";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(showTempSearch);
+  let url = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}&units=imperial`;
+  axios.get(url).then(showCurrentTempSearch);
 };
 
 let searchButton = document.querySelector("#search-button");
