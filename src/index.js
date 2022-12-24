@@ -51,21 +51,21 @@ const showCurrentTempSearch = (response) => {
   //API KEY!
   let apiKey = "00f36a13417d323ad5btb367oe1a594f";
 
-//When current button is clicked:
-const getPosition = (position) => {
-  let lat = position.data.coordinates.latitude;
-  let long = position.data.coordinates.longitude;
-  let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=imperial`;
-  axios.get(url).then(showCurrentTempSearch);
-};
+// //When current button is clicked:
+// const getPosition = (position) => {
+//   let lat = position.data.coordinates.latitude;
+//   let long = position.data.coordinates.longitude;
+//   let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=imperial`;
+//   axios.get(url).then(showCurrentTempSearch);
+// };
 
-const currentGetPosition = (event) => {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getPosition);
-};
+// const currentGetPosition = (event) => {
+//   event.preventDefault();
+//   navigator.geolocation.getCurrentPosition(getPosition);
+// };
 
-let currentButton = document.querySelector("#current-button");
-currentButton.addEventListener("click", currentGetPosition);
+// let currentButton = document.querySelector("#current-button");
+// currentButton.addEventListener("click", currentGetPosition);
 
 //when search button is clicked
 
