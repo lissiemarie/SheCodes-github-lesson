@@ -84,11 +84,11 @@ h1 {
     margin: 0 auto;
 }
 
-.five-day {
+/* .five-day {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: 20px;
-}
+} */
 
 .footer {
     text-align: center;
