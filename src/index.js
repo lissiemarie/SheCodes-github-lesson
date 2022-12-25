@@ -28,7 +28,7 @@ if (currentMinutes >= 10) {
 const showCurrentTempSearch = (response) => {
     //temp
     let temp = document.querySelector(".temp");
-    let currentTemp = Math.round(response.data.temperature.current);
+    let currentTemp = Math.round(fahrenheitTemperature);
     temp.innerHTML = `${currentTemp}`;
     //city
     let city = document.querySelector("h1");
@@ -50,6 +50,8 @@ const showCurrentTempSearch = (response) => {
     let emoji = document.querySelector(".current-emoji");
     let currentEmoji = response.data.condition.icon_url;
     emoji.setAttribute("src", currentEmoji);
+
+    fahrenheitTemperature = Math.round(response.data.temperature.current);
 
   };
 
@@ -94,22 +96,24 @@ const handleSubmit = event => {
   search(cityInputElem.value);
 }
 
-
-
-
-let form = document.querySelector("#input-form");
-form.addEventListener("submit", handleSubmit);
-
 //Celsius conversion
 
 const showCelsiusTemp = event => {
   event.preventDefault();
   let fahrenheitElement = document.querySelector(".temp");
-  let celsiusValue = (fahrenheitElement.innerHTML - 32) * 5/9;
+  let celsiusValue = (fahrenheitTemperature - 32) * 5/9;
   fahrenheitElement.innerHTML = Math.round(celsiusValue);
 }
 
-let celsius = document.querySelector("#celsius-link");
-celsius.addEventListener("click", showCelsiusTemp);
+//Event Listeners
+
+fahrenheitTemperature = null;
+
+let form = document.querySelector("#input-form");
+form.addEventListener("submit", handleSubmit);
+
+
+let celsiusLink = document.querySelector("#Link-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
 
 
