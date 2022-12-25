@@ -100,9 +100,18 @@ const handleSubmit = event => {
 
 const showCelsiusTemp = event => {
   event.preventDefault();
-  let fahrenheitElement = document.querySelector(".temp");
+  let temperatureElement = document.querySelector(".temp");
   let celsiusValue = (fahrenheitTemperature - 32) * 5/9;
-  fahrenheitElement.innerHTML = Math.round(celsiusValue);
+  temperatureElement.innerHTML = Math.round(celsiusValue);
+}
+
+//Fahrenheit conversion
+
+const showFahrenheitTemp = event => {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".temp");
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 //Event Listeners
@@ -113,7 +122,8 @@ let form = document.querySelector("#input-form");
 form.addEventListener("submit", handleSubmit);
 
 
-let celsiusLink = document.querySelector("#Link-link");
+let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
-
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
