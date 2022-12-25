@@ -28,7 +28,7 @@ if (currentMinutes >= 10) {
 const showCurrentTempSearch = (response) => {
     //temp
     let temp = document.querySelector(".temp");
-    let currentTemp = Math.round(fahrenheitTemperature);
+    let currentTemp = Math.round(response.data.temperature.current);
     temp.innerHTML = `${currentTemp}`;
     //city
     let city = document.querySelector("h1");
@@ -50,8 +50,6 @@ const showCurrentTempSearch = (response) => {
     let emoji = document.querySelector(".current-emoji");
     let currentEmoji = response.data.condition.icon_url;
     emoji.setAttribute("src", currentEmoji);
-
-    fahrenheitTemperature = Math.round(response.data.temperature.current);
 
   };
 
@@ -101,7 +99,7 @@ const handleSubmit = event => {
 const showCelsiusTemp = event => {
   event.preventDefault();
   let temperatureElement = document.querySelector(".temp");
-  let celsiusValue = (fahrenheitTemperature - 32) * 5/9;
+  let celsiusValue = (temperatureElement.value - 32) * 5/9;
   temperatureElement.innerHTML = Math.round(celsiusValue);
 }
 
@@ -110,8 +108,8 @@ const showCelsiusTemp = event => {
 const showFahrenheitTemp = event => {
   event.preventDefault();
   let temperatureElement = document.querySelector(".temp");
-
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  let fahrenheitValue = 9/5 * temperatureElement.value + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitValue);
 }
 
 //Event Listeners
