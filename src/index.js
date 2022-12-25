@@ -94,7 +94,7 @@ const handleSubmit = event => {
   search(cityInputElem.value);
 }
 
-search("Dallas");
+
 
 
 let form = document.querySelector("#input-form");
