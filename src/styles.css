@@ -12,6 +12,10 @@ h1 {
     margin: 5px auto 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 .city-day-time p {
     text-align: center;
     margin: 5px auto;
@@ -25,6 +29,16 @@ h1 {
     font-size: 60px;
     font-weight: bolder;
 }
+
+.units,
+.units-link {
+    font-size: 20px;
+    top: -13px;
+    left: -20px;
+    position: relative;
+}
+
+
 
 .current-weather {
     font-size: 40px;
