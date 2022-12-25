@@ -26,9 +26,11 @@ if (currentMinutes >= 10) {
 
 //All doc selectors
 const showCurrentTempSearch = (response) => {
+
+  let fahrenheitTemperature = response.data.temperature.current;
     //temp
     let temp = document.querySelector(".temp");
-    let currentTemp = Math.round(response.data.temperature.current);
+    let currentTemp = Math.round(fahrenheitTemperature);
     temp.innerHTML = `${currentTemp}`;
     //city
     let city = document.querySelector("h1");
@@ -108,13 +110,12 @@ const showCelsiusTemp = event => {
 const showFahrenheitTemp = event => {
   event.preventDefault();
   let temperatureElement = document.querySelector(".temp");
-  let fahrenheitValue = 9/5 * temperatureElement.value + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitValue);
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 //Event Listeners
 
-
+let fahrenheitTemperature = null;
 
 let form = document.querySelector("#input-form");
 form.addEventListener("submit", handleSubmit);
