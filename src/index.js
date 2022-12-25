@@ -27,7 +27,7 @@ if (currentMinutes >= 10) {
 //All doc selectors
 const showCurrentTempSearch = (response) => {
 
-  let fahrenheitTemperature = response.data.temperature.current;
+  fahrenheitTemperature = response.data.temperature.current;
     //temp
     let temp = document.querySelector(".temp");
     let currentTemp = Math.round(fahrenheitTemperature);
