@@ -101,7 +101,7 @@ const handleSubmit = event => {
 const showCelsiusTemp = event => {
   event.preventDefault();
   let temperatureElement = document.querySelector(".temp");
-  let celsiusValue = (temperatureElement.value - 32) * 5/9;
+  let celsiusValue = (temperatureElement.innerHTML - 32) * 5/9;
   temperatureElement.innerHTML = Math.round(celsiusValue);
 }
 
