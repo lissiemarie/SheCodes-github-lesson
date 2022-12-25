@@ -91,7 +91,7 @@ const showCurrentTempSearch = (response) => {
 const handleSubmit = event => {
   event.preventDefault();
   let cityInputElem = document.querySelector("#city-input");
-
+  search(cityInputElem.value);
 }
 
 search("Dallas");
