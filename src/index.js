@@ -56,7 +56,7 @@ const showCurrentTempSearch = (response) => {
   //API KEY!
   const search = city => {
     let apiKey = "00f36a13417d323ad5btb367oe1a594f";
-  let url = `https://api.shecodes.io/weather/v1/current?query=${cityInputElem}&key=${apiKey}&units=imperial`;
+  let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(url).then(showCurrentTempSearch)
   }
 // //When current button is clicked:
