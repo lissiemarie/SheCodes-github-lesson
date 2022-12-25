@@ -116,7 +116,7 @@ const showFahrenheitTemp = event => {
 
 //Event Listeners
 
-fahrenheitTemperature = null;
+
 
 let form = document.querySelector("#input-form");
 form.addEventListener("submit", handleSubmit);
