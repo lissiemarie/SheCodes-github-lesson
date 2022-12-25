@@ -29,7 +29,7 @@ const showCurrentTempSearch = (response) => {
     //temp
     let temp = document.querySelector(".temp");
     let currentTemp = Math.round(response.data.temperature.current);
-    temp.innerHTML = `${currentTemp}°F`;
+    temp.innerHTML = `${currentTemp}`;
     //city
     let city = document.querySelector("h1");
     let currentCity = response.data.city;
@@ -54,14 +54,17 @@ const showCurrentTempSearch = (response) => {
   };
 
   //API KEY!
-  let apiKey = "00f36a13417d323ad5btb367oe1a594f";
-
+  const search = city => {
+    let apiKey = "00f36a13417d323ad5btb367oe1a594f";
+  let url = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}&units=imperial`;
+  axios.get(url).then(showCurrentTempSearch)
+  }
 // //When current button is clicked:
 // const getPosition = (position) => {
 //   let lat = position.data.coordinates.latitude;
 //   let long = position.data.coordinates.longitude;
 //   let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=imperial`;
-//   axios.get(url).then(showCurrentTempSearch);
+//   ;
 // };
 
 // const currentGetPosition = (event) => {
@@ -74,12 +77,39 @@ const showCurrentTempSearch = (response) => {
 
 //when search button is clicked
 
-const getSearchedCity = (event) => {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-input").value;
-  let url = `https://api.shecodes.io/weather/v1/current?query=${cityInput}&key=${apiKey}&units=imperial`;
-  axios.get(url).then(showCurrentTempSearch);
-};
+// const getSearchedCity = (event) => {
+//   event.preventDefault();
+//   let cityInput = document.querySelector("#city-input").value;
+  
+//   axios.get(url).then(showCurrentTempSearch);
+// };
 
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", getSearchedCity);
+// let searchButton = document.querySelector("#search-button");
+// searchButton.addEventListener("click", getSearchedCity);
+
+//New search function..
+const handleSubmit = event => {
+  event.preventDefault();
+  let cityInputElem = document.querySelector("#city-input");
+
+}
+
+search("Dallas");
+
+
+let form = document.querySelector("#input-form");
+form.addEventListener("submit", handleSubmit);
+
+//Celsius conversion
+
+const showCelsiusTemp = event => {
+  event.preventDefault();
+  let fahrenheitElement = document.querySelector(".temp");
+  let celsiusValue = (fahrenheitElement.innerHTML - 32) * 5/9;
+  fahrenheitElement.innerHTML = Math.round(celsiusValue);
+}
+
+let celsius = document.querySelector("#celsius-link");
+celsius.addEventListener("click", showCelsiusTemp);
+
+
