@@ -30,15 +30,16 @@ const displayForecast = (response) => {
   let forecast = response.data.daily;
   let forecastElem = document.querySelector("#forecast");
   let forecastHTML = "";
-  forecast.forEach(function(forecastDay) {
+  forecast.forEach(function(forecastDay, index) {
+   if(index < 6) {
     forecastHTML = forecastHTML + `
           <p>
-            <span class="day-one">${forecastDay.temperature.day}</span><br /><span class="forecast-emoji"
-              >:)</span
-            ><br />
+            <span class="day-one">${formatDay(forecastDay.temperature.day)}</span><br /><img class="forecast-emoji" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
+              /><br />
             <span class="forecast-temp-max">${Math.round(forecastDay.temperature.maximum)}</span>
             <span class="forecast-temp-min">${Math.round(forecastDay.temperature.minimum)}</span>
           </p>`;
+   }
 });
   forecastElem.innerHTML = forecastHTML
 };
@@ -46,7 +47,7 @@ const displayForecast = (response) => {
 //Forecast API call
 const getForecast = city => {
   let apiKey = "00f36a13417d323ad5btb367oe1a594f";
-  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`
   axios.get(url).then(displayForecast);
 }
 
