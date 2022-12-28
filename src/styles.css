@@ -44,7 +44,7 @@ a {
 
 .main {
     height: 600px;
-    width: 650px;
+    width: 630px;
     margin: 100px auto;
     background: #eeeeee;
     padding: 20px;
@@ -69,7 +69,7 @@ a {
 
 #search-button {
     height: 36px;
-    width: 80px;
+    width: 30%;
     font-size: 15px;
     border-radius: 15px;
     border: none;
