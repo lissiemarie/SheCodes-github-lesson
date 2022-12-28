@@ -1,15 +1,13 @@
 body {
-    background: linear-gradient(90deg,
-            rgb(115, 187, 252) 0%,
-            rgb(23, 81, 149) 100%);
-    color: #142d4c;
-    font-family: 'Azeret Mono', monospace;
+    background: #77628c;
+    color: #3b0944;
+    font-family: 'Inter Tight', sans-serif;
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 35px;
     text-align: center;
-    margin: 5px auto 0;
+    margin: 20px auto 0;
 }
 
 a {
@@ -22,7 +20,8 @@ a {
 }
 
 .date-time {
-    font-size: 25px;
+    font-size: 15px;
+    margin-top: 10px;
 }
 
 .temp {
@@ -40,14 +39,14 @@ a {
 
 
 .current-weather {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .main {
     height: 500px;
     width: 450px;
     margin: 100px auto;
-    background: #bcdbdf;
+    background: #eeeeee;
     padding: 20px;
     border-radius: 25px;
     box-shadow: 25px 17px 37px #142d4c;
@@ -61,21 +60,21 @@ a {
 #city-input {
     width: 60%;
     height: 30px;
-    font-size: 17px;
+    font-size: 15px;
     border-radius: 15px;
-    border-color: #142d4c;
-    background-color: #edf7fa;
-    font-family: 'Azeret Mono', monospace;
+    border-color: #77628c;
+    background-color: #acc6aa;
+    font-family: 'Inter Tight', sans-serif;
 }
 
 #search-button {
     height: 36px;
     width: 80px;
-    font-size: 17px;
+    font-size: 15px;
     border-radius: 15px;
     border: none;
     box-shadow: 10px 10px 16px rgba(0, 0, 0, 0.4);
-    background-color: #142d4c;
+    background-color: #77628c;
     color: #edf7fa;
     font-family: 'Azeret Mono', monospace;
 }
@@ -105,11 +104,21 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: 20px;
+    background-color: #71a0a5;
+    border-radius: 15px;
 }
 
 .forecast-temp-max,
 .forecast-temp-min {
     font-size: 15px;
+}
+
+.forecast-temp-max {
+    font-weight: bold;
+}
+
+.forecast-temp-min {
+    opacity: 0.5;
 }
 
 .footer {
