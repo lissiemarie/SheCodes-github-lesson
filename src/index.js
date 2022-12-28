@@ -29,7 +29,8 @@ if (currentMinutes >= 10) {
 const displayForecast = () => {
   let forecastElem = document.querySelector("#forecast");
 
-  forecastElem.innerHTML = `
+let forecastHTML = "";
+forecastHTML = forecastHTML + `
         <p>
           <span class="day-one">Mon</span><br /><span class="day-one-emoji"
             >⛅</span
@@ -37,6 +38,8 @@ const displayForecast = () => {
           <span class="forecast-temp-max">40</span>
           <span class="forecast-temp-min">25</span>
         </p>`
+forecastElem.innerHTML = forecastHTML
+
 }
 
 //All doc selectors
@@ -63,12 +66,13 @@ const showCurrentTempSearch = (response) => {
     let wind = document.querySelector(".wind");
     let currentWind = Math.round(response.data.wind.speed);
     wind.innerHTML = `Wind: ${currentWind} mph`;
-
+    
     let emoji = document.querySelector(".current-emoji");
     let currentEmoji = response.data.condition.icon_url;
     emoji.setAttribute("src", currentEmoji);
-
     
+    
+    displayForecast();
   };
   
   //API KEY!
@@ -142,5 +146,3 @@ celsiusLink.addEventListener("click", showCelsiusTemp);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-displayForecast();
