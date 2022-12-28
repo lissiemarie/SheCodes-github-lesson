@@ -24,6 +24,16 @@ if (currentMinutes >= 10) {
   dayTime.innerHTML = `${currentDay} ${currentHour}:0${currentMinutes}`;
 }
 
+//Format date function
+const formatDay = timestamp => {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+  return days[day];
+}
+
+
 //Display forecast function
 
 const displayForecast = (response) => {
@@ -33,7 +43,7 @@ const displayForecast = (response) => {
   forecast.forEach(function(forecastDay) {
     forecastHTML = forecastHTML + `
           <p>
-            <span class="day-one">${forecastDay.time}</span><br /><img class="forecast-emoji" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
+            <span class="day-one">${formatDay(forecastDay.time)}</span><br /><img class="forecast-emoji" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
               /><br />
             <span class="forecast-temp-max">${Math.round(forecastDay.temperature.maximum)}°</span>
             <span class="forecast-temp-min">${Math.round(forecastDay.temperature.minimum)}°</span>
