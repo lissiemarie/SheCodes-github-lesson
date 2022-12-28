@@ -40,7 +40,8 @@ const displayForecast = (response) => {
   let forecast = response.data.daily;
   let forecastElem = document.querySelector("#forecast");
   let forecastHTML = "";
-  forecast.forEach(function(forecastDay) {
+  forecast.forEach(function(forecastDay, index) {
+    if(index < 6) {
     forecastHTML = forecastHTML + `
           <p>
             <span class="day-one">${formatDay(forecastDay.time)}</span><br /><img class="forecast-emoji" src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png"
@@ -48,6 +49,7 @@ const displayForecast = (response) => {
             <span class="forecast-temp-max">${Math.round(forecastDay.temperature.maximum)}°</span>
             <span class="forecast-temp-min">${Math.round(forecastDay.temperature.minimum)}°</span>
           </p>`;
+    }
 });
   forecastElem.innerHTML = forecastHTML
 };
