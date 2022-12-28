@@ -102,7 +102,7 @@ a {
 
 #forecast {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     font-size: 20px;
     background-color: #71a0a5;
     border-radius: 15px;
