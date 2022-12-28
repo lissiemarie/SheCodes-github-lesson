@@ -24,6 +24,21 @@ if (currentMinutes >= 10) {
   dayTime.innerHTML = `${currentDay} ${currentHour}:0${currentMinutes}`;
 }
 
+//Display forecast function
+
+const displayForecast = () => {
+  let forecastElem = document.querySelector("#forecast");
+
+  forecastElem.innerHTML = `
+        <p>
+          <span class="day-one">Mon</span><br /><span class="day-one-emoji"
+            >⛅</span
+          ><br />
+          <span class="forecast-temp-max">40</span>
+          <span class="forecast-temp-min">25</span>
+        </p>`
+}
+
 //All doc selectors
 const showCurrentTempSearch = (response) => {
 
@@ -53,36 +68,37 @@ const showCurrentTempSearch = (response) => {
     let currentEmoji = response.data.condition.icon_url;
     emoji.setAttribute("src", currentEmoji);
 
+    
   };
-
+  
   //API KEY!
   const search = city => {
     let apiKey = "00f36a13417d323ad5btb367oe1a594f";
-  let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
-  axios.get(url).then(showCurrentTempSearch)
+    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+    axios.get(url).then(showCurrentTempSearch)
   }
-// //When current button is clicked:
-// const getPosition = (position) => {
-//   let lat = position.data.coordinates.latitude;
-//   let long = position.data.coordinates.longitude;
-//   let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=imperial`;
-//   ;
-// };
-
-// const currentGetPosition = (event) => {
-//   event.preventDefault();
-//   navigator.geolocation.getCurrentPosition(getPosition);
-// };
-
-// let currentButton = document.querySelector("#current-button");
-// currentButton.addEventListener("click", currentGetPosition);
-
-//when search button is clicked
-
+  // //When current button is clicked:
+  // const getPosition = (position) => {
+    //   let lat = position.data.coordinates.latitude;
+    //   let long = position.data.coordinates.longitude;
+    //   let url = `https://api.shecodes.io/weather/v1/current?lon=${long}&lat=${lat}&key=${apiKey}&units=imperial`;
+    //   ;
+    // };
+    
+    // const currentGetPosition = (event) => {
+      //   event.preventDefault();
+      //   navigator.geolocation.getCurrentPosition(getPosition);
+      // };
+      
+      // let currentButton = document.querySelector("#current-button");
+      // currentButton.addEventListener("click", currentGetPosition);
+      
+      //when search button is clicked
+      
 // const getSearchedCity = (event) => {
 //   event.preventDefault();
 //   let cityInput = document.querySelector("#city-input").value;
-  
+
 //   axios.get(url).then(showCurrentTempSearch);
 // };
 
@@ -126,3 +142,5 @@ celsiusLink.addEventListener("click", showCelsiusTemp);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+displayForecast();
