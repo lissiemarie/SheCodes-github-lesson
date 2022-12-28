@@ -106,6 +106,8 @@ a {
     font-size: 20px;
     background-color: #71a0a5;
     border-radius: 15px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .forecast-temp-max,
