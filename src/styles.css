@@ -100,7 +100,7 @@ a {
     margin: 0 auto;
 }
 
-.five-day {
+#forecast {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-size: 20px;
