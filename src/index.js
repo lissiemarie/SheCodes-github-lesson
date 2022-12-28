@@ -27,11 +27,9 @@ if (currentMinutes >= 10) {
 //Display forecast function
 
 const displayForecast = (response) => {
-  let forecastElem = document.querySelector("#forecast");
-
   let forecast = response.data.daily;
+  let forecastElem = document.querySelector("#forecast");
   let forecastHTML = "";
-  
   forecast.forEach(function(forecastDay) {
     forecastHTML = forecastHTML + `
           <p>
