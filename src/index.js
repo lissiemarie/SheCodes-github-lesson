@@ -77,6 +77,8 @@ const showCurrentTempSearch = (response) => {
     let emoji = document.querySelector(".current-emoji");
     let currentEmoji = response.data.condition.icon_url;
     emoji.setAttribute("src", currentEmoji);
+
+    getForecast(response.data.coordinates);
   };
   
   //API KEY!
