@@ -28,17 +28,20 @@ if (currentMinutes >= 10) {
 
 const displayForecast = (response) => {
   let forecastElem = document.querySelector("#forecast");
-
+  let emoji = document.querySelector(".forecast-emoji");
+  let forecast = response.data.daily;
+  let forecastEmoji = forecast.condition.icon_url;
+  emoji.setAttribute("src", forecastEmoji);
   let forecastHTML = "";
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function(day) {
+  
+  forecast.forEach(function(forecastDay) {
     forecastHTML = forecastHTML + `
           <p>
-            <span class="day-one">${day}</span><br /><span class="day-one-emoji"
-              >⛅</span
+            <span class="day-one">${forecastDay.temperature.day}</span><br /><span class="forecast-emoji"
+              >${forecastEmoji}</span
             ><br />
-            <span class="forecast-temp-max">40</span>
-            <span class="forecast-temp-min">25</span>
+            <span class="forecast-temp-max">${Math.round(forecastDay.temperature.maximum)}</span>
+            <span class="forecast-temp-min">${Math.round(forecastDay.temperature.minimum)}</span>
           </p>`;
 });
   forecastElem.innerHTML = forecastHTML
