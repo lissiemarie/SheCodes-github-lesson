@@ -26,24 +26,29 @@ if (currentMinutes >= 10) {
 
 //Display forecast function
 
-const displayForecast = () => {
+const displayForecast = (response) => {
   let forecastElem = document.querySelector("#forecast");
 
-let forecastHTML = "";
-let days = ["Thu", "Fri", "Sat", "Sun"];
-days.forEach(function(day) {
-  forecastHTML = forecastHTML + `
-        <p>
-          <span class="day-one">${day}</span><br /><span class="day-one-emoji"
-            >⛅</span
-          ><br />
-          <span class="forecast-temp-max">40</span>
-          <span class="forecast-temp-min">25</span>
-        </p>`;
+  let forecastHTML = "";
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function(day) {
+    forecastHTML = forecastHTML + `
+          <p>
+            <span class="day-one">${day}</span><br /><span class="day-one-emoji"
+              >⛅</span
+            ><br />
+            <span class="forecast-temp-max">40</span>
+            <span class="forecast-temp-min">25</span>
+          </p>`;
 });
+  forecastElem.innerHTML = forecastHTML
+};
 
-forecastElem.innerHTML = forecastHTML
-
+//Forecast API call
+const getForecast = city => {
+  let apiKey = "00f36a13417d323ad5btb367oe1a594f";
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`
+  axios.get(url).then(displayForecast);
 }
 
 //All doc selectors
@@ -74,9 +79,6 @@ const showCurrentTempSearch = (response) => {
     let emoji = document.querySelector(".current-emoji");
     let currentEmoji = response.data.condition.icon_url;
     emoji.setAttribute("src", currentEmoji);
-    
-    
-    displayForecast();
   };
   
   //API KEY!
