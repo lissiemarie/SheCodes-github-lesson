@@ -37,7 +37,15 @@ forecastHTML = forecastHTML + `
           ><br />
           <span class="forecast-temp-max">40</span>
           <span class="forecast-temp-min">25</span>
-        </p>`
+        </p>`;
+forecastHTML = forecastHTML + `
+        <p>
+          <span class="day-one">Mon</span><br /><span class="day-one-emoji"
+            >⛅</span
+          ><br />
+          <span class="forecast-temp-max">40</span>
+          <span class="forecast-temp-min">25</span>
+        </p>`;
 forecastElem.innerHTML = forecastHTML
 
 }
