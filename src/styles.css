@@ -156,6 +156,11 @@ a {
         position: relative;
     }
 
+    #forecast {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
     .footer {
         margin-top: 20px;
         background: #edf7fa;
