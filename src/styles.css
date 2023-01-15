@@ -131,7 +131,7 @@ a {
 
 @media (max-width: 1482px) {
     .main {
-        width: 70%;
+        width: 50%;
     }
 
     #forecast {
