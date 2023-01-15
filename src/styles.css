@@ -129,9 +129,14 @@ a {
     font-size: smaller;
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1482px) {
     .main {
         width: 70%;
+    }
+
+    #forecast {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
     }
 }
 
